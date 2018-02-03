@@ -11,5 +11,4 @@ from fintools.monthly_return_table import *
 from fintools.Parameters import *
 from fintools.portfolio_helper_functions import *
 from fintools.set_start_end import *
-from fintools.highlight_pos_neg import highlight_pos_neg
 from fintools.show_return_table import show_return_table

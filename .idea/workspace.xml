@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a19e0290-29ee-40af-b0c7-96e5aea8d2a2" name="Default" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/fintools.iml" afterPath="$PROJECT_DIR$/.idea/fintools.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="a19e0290-29ee-40af-b0c7-96e5aea8d2a2" name="Default" comment="update __init__ and portfolio_helper_functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/fintools/__init__.py" afterPath="$PROJECT_DIR$/fintools/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/fintools/portfolio_helper_functions.py" afterPath="$PROJECT_DIR$/fintools/portfolio_helper_functions.py" />
+      <change beforePath="$PROJECT_DIR$/fintools/highlight_pos_neg.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/fintools/show_return_table.py" afterPath="$PROJECT_DIR$/fintools/show_return_table.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,14 +16,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fintools/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="195">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -39,11 +36,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="portfolio_helper_functions.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="portfolio_helper_functions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fintools/portfolio_helper_functions.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
               <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show_return_table.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fintools/show_return_table.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="allocation_helper_functions.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fintools/allocation_helper_functions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1215">
+              <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -80,11 +97,11 @@
         <option value="$PROJECT_DIR$/setup.cfg" />
         <option value="$PROJECT_DIR$/LICENSE" />
         <option value="$PROJECT_DIR$/fintools/p.py" />
-        <option value="$PROJECT_DIR$/fintools/show_return_table.py" />
         <option value="$PROJECT_DIR$/conda/meta.yaml" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/fintools/portfolio_helper_functions.py" />
         <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/fintools/show_return_table.py" />
         <option value="$PROJECT_DIR$/fintools/__init__.py" />
       </list>
     </option>
@@ -300,13 +317,21 @@
       <option name="project" value="LOCAL" />
       <updated>1517580826418</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update __init__ and portfolio_helper_functions">
+      <created>1517650043220</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1517650043220</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23933902" sideWeight="0.59338313" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23933902" sideWeight="0.59338313" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45842218" sideWeight="0.46375266" order="6" side_tool="true" content_ui="tabs" x="1346" y="731" width="538" height="295" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.49428868" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="497" y="688" width="806" height="345" />
       <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3107676" sideWeight="0.7976424" order="4" side_tool="true" content_ui="tabs" />
@@ -371,7 +396,8 @@
     <MESSAGE value="updated __init__&#10;added highlight_pos_neg&#10;added show_return_table" />
     <MESSAGE value="bumped rev to 0.1.1" />
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="update __init__ and portfolio_helper_functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="update __init__ and portfolio_helper_functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -418,9 +444,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="42" lean-forward="false" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -566,22 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fintools/highlight_pos_neg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fintools/show_return_table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conda/debug.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -615,14 +623,6 @@
       </provider>
     </entry>
     <entry file="file://E:/Miniconda3/envs/fintools/Lib/site-packages/cvxopt/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/fintools/allocation_helper_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -631,20 +631,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fintools/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fintools/portfolio_helper_functions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fintools/highlight_pos_neg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="5" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="115" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fintools/allocation_helper_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1215">
+          <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fintools/show_return_table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fintools/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
