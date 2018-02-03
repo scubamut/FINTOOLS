@@ -69,10 +69,10 @@ def compute_efficient_portfolio(mu_vec, sigma_mat, target_return, shorts=True):
 
     if len(mu_vec) != len(sigma_mat):
         print("dimensions of mu_vec and sigma_mat do not match")
-        raise
+        raise()
     if np.matrix([sigma_mat.ix[i][i] for i in range(len(sigma_mat))]).any() <= 0:
         print('Covariance matrix not positive definite')
-        raise
+        raise()
 
     #
     # compute efficient portfolio
