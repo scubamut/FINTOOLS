@@ -1,3 +1,5 @@
+import cvxopt
+
 from fintools.backtest import backtest
 from fintools.allocation_helper_functions import *
 from fintools.cla import *
@@ -10,5 +12,7 @@ from fintools.mlhelpers3 import *
 from fintools.monthly_return_table import *
 from fintools.Parameters import *
 from fintools.portfolio_helper_functions import *
-from fintools.set_start_end import *
+from fintools.set_start_end import set_start_end
 from fintools.show_return_table import show_return_table
+from fintools.show_annual_returns import show_annual_returns
+

@@ -1,4 +1,5 @@
-from .set_start_end import set_start_end
+#from . import set_start_end
+from fintools.set_start_end import set_start_end
 
 def get_yahoo_prices(p):
 
