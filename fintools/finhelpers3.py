@@ -346,7 +346,7 @@ def get_history(symbols, start, end, data_path, visible=False):
 
     symbols_ls = list(symbols)
     for ticker in symbols:
-        print (ticker,' ',end="")
+        print (ticker,)
         try:
             #see if csv data available
             data = pd.read_csv(data_path + ticker + '.csv', index_col='Date', parse_dates=True)
