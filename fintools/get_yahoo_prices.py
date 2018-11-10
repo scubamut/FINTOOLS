@@ -21,7 +21,7 @@ def get_yahoo_prices(p):
             if p.start >= p.end:
                 raise ('start must be < end')
 
-            start, end = set_start_end(p.start)
+            start, end = set_start_end(start=p.start)
 
             data_panel = data.DataReader(tickers, "yahoo", start, end)
 
