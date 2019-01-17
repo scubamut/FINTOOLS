@@ -484,10 +484,6 @@ def get_pricing(symbols, start_date='2013-01-03', end_date='2014-01-03', symbol_
     Search Dogpile  Search Bing Search Yahoo
     '''
     
-    import os
-    os.chdir('C:\\Users\\scuba\\Google Drive\\NOTEBOOKS')
-    from finhelpers3 import get_history
-    
     import datetime as dt
     import numpy as np
     
@@ -502,7 +498,7 @@ def get_pricing(symbols, start_date='2013-01-03', end_date='2014-01-03', symbol_
     start = date_as_datetime(start_date)
     end = date_as_datetime(end_date)    
     
-    data = get_history(symbols, start, end, data_path='G:\\Python Resources\\Data\\').transpose(2,1,0)
+    data = get_history(symbols, start, end, data_path='/home/scubamut/MEGAsync/DATA/').transpose(2,1,0)
     data.items = [u'open_price', u'high', u'low', u'close_price', u'volume', u'price']
 
     if fields==None :
