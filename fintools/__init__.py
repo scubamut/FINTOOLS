@@ -15,4 +15,4 @@ from fintools.portfolio_helper_functions import *
 from fintools.set_start_end import set_start_end
 from fintools.show_return_table import show_return_table
 from fintools.show_annual_returns import show_annual_returns
-
+from fintools.get_DataArray import get_DataArray
