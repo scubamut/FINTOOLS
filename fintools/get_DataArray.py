@@ -19,10 +19,10 @@ def get_DataArray(assets, start, end):
 
     '''
 
-    #     import pandas_datareader as pdr
-    #     import datetime as dt
-    #     import pytz
-    #     import xarray as xr
+        import pandas_datareader as pdr
+        import datetime as dt
+        import pytz
+        import xarray as xr
 
     df = pdr.DataReader(assets, 'yahoo', start, end)
 
@@ -49,4 +49,7 @@ def get_DataArray(assets, start, end):
             print ('*** WARNING : ', t[1], ' MISSING DATA FOR ', t[0], 'VALUES')
 
     return da
+
+# to show panel
+# da.to_pandas().transpose(1,2,0)
 
