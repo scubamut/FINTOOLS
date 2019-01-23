@@ -19,10 +19,10 @@ def get_DataArray(assets, start, end):
 
     '''
 
-        import pandas_datareader as pdr
-        import datetime as dt
-        import pytz
-        import xarray as xr
+    import pandas_datareader as pdr
+    import datetime as dt
+    import pytz
+    import xarray as xr
 
     df = pdr.DataReader(assets, 'yahoo', start, end)
 
