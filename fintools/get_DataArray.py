@@ -35,7 +35,7 @@ def get_DataArray(assets, start, end):
     assets = [asset for asset in assets if asset not in unusable_assets]
 
     Attributes = df.columns.levels[0].astype(str).str.lower()
-    Symbols = assets
+    Symbols = [a for a in df.columns.levels[1]]
     Date = df.index
 
     da = xr.DataArray(df.values.transpose().reshape(len(Attributes), len(Symbols), len(Date)),
