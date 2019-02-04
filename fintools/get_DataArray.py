@@ -24,7 +24,10 @@ def get_DataArray(assets, start, end):
     import pytz
     import xarray as xr
 
-    df = pdr.DataReader(assets, 'yahoo', start, end)
+    try:
+        df = pdr.DataReader(assets, 'yahoo', start, end)
+    except:
+        print('** UNKNOWN ASSET -> ')
 
     # Find any assets which may no longer exist
     unusable_assets = [s for s in assets if df['Close'][s][-1:].any() == False]
@@ -49,7 +52,4 @@ def get_DataArray(assets, start, end):
             print ('*** WARNING : ', t[1], ' MISSING DATA FOR ', t[0], 'VALUES')
 
     return da
-
-# to show panel
-# da.to_pandas().transpose(1,2,0)
 
