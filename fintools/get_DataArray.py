@@ -27,29 +27,30 @@ def get_DataArray(assets, start, end):
     try:
         df = pdr.DataReader(assets, 'yahoo', start, end)
     except:
+
         print('** UNKNOWN ASSET -> ')
 
-    # Find any assets which may no longer exist
-    unusable_assets = [s for s in assets if df['Close'][s][-1:].any() == False]
+    # for funds, today's data is unavailable
+    # so forward-fill last 2 days
+    df[-1:] = df[-2:-1].values
+    unusable_assets = [s for s in assets if df['Close'][s][-2:].ffill().any() == False]
     if len(unusable_assets) > 0:
         print ('*** WARNING - No longer trading : ', unusable_assets)
-    # Remove any unusable assets
-    df = df.T.drop(unusable_assets, level=1).T
-    assets = [asset for asset in assets if asset not in unusable_assets]
+        # Remove any unusable assets
+        df = df.T.drop(unusable_assets, level=1).T
 
+    # FORWARD-FILL to remove missing data
+    df = df.ffill()
+
+    # Create DataArray
     Attributes = df.columns.levels[0].astype(str).str.lower()
-    Symbols = [a for a in df.columns.levels[1]]
+    Symbols = [s for s in df.columns.levels[1] if s not in unusable_assets]
     Date = df.index
 
     da = xr.DataArray(df.values.transpose().reshape(len(Attributes), len(Symbols), len(Date)),
                       coords=[Attributes, Symbols, Date],
                       dims=['Attributes', 'Symbols', 'Date'])
 
-    # Check for missing data
-    diff = da.ffill('Date')[0].count(axis=1) - da[0].count(axis=1)
-    for t in [(a.data.tolist(), a.Symbols.data.tolist()) for a in diff]:
-        if t[0] >= 1:
-            print ('*** WARNING : ', t[1], ' MISSING DATA FOR ', t[0], 'VALUES')
 
     return da
 
