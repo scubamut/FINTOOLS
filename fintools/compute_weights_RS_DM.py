@@ -1,16 +1,17 @@
-import pandas as pd
-from .Parameters import Parameters
-from .get_yahoo_prices import get_yahoo_prices
-from .endpoints import endpoints
-from .backtest import backtest
-
 def compute_weights_RS_DM(name, parameters):
+
+    import pandas as pd
+    from fintools.Parameters import Parameters
+    from fintools.get_DataArray import get_DataArray
+    from fintools.endpoints import endpoints
+    from fintools.backtest import backtest
 
     print('Strategy : {}'.format(name))
 
     p = Parameters(parameters)
 
-    prices = get_yahoo_prices(p)
+    da = get_DataArray(p.symbols,p.start,p.end)
+    prices = da.to_pandas().transpose(1,2,0)[:,:,'close']
 
     end_points = endpoints(period=p.frequency, trading_days=prices.index)
     prices_m = prices.loc[end_points]
@@ -51,3 +52,22 @@ def compute_weights_RS_DM(name, parameters):
 
     return p_value, p_holdings, p_weights, prices
 
+if __name__ == "__main__":
+
+    from datetime import datetime, timezone, timedelta
+    import pytz
+
+    start = datetime(2010, 1, 1, 0, 0, 0, 0, pytz.utc)
+    end = datetime(2018, 1, 10, 0, 0, 0, 0, pytz.utc)
+#     end = datetime.today().replace(tzinfo=timezone.utc)        # to test for 'today'
+    strategies = {
+
+        'RS0001': { 'symbols': ['CWB','HYG','MBB','IEF','HYD'],
+               'prices':'yahoo', 'start':start, 'end':end,
+               'rs_lookback': 1, 'risk_lookback': 1, 'n_top': 2, 'frequency': 'M',
+              'cash_proxy': 'CASHX', 'risk_free': 0}}
+
+    p_value, p_holdings, p_weights, prices = compute_weights_RS_DM('RS0001', strategies['RS0001'])
+
+
+    print(p_value)

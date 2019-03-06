@@ -1,16 +1,16 @@
-import pandas as pd
-from .Parameters import Parameters
-from .get_yahoo_prices import get_yahoo_prices
-from .endpoints import endpoints
-from .backtest import backtest
-
 def compute_weights_PMA(name, parameters):
+
+    from fintools.Parameters import Parameters
+    from fintools.get_DataArray import get_DataArray
+    from fintools.endpoints import endpoints
+    from fintools.backtest import backtest
 
     print(name)
 
     p = Parameters(parameters)
 
-    prices = get_yahoo_prices(p)
+    da = get_DataArray(p.symbols,p.start,p.end)
+    prices = da.to_pandas().transpose(1,2,0)[:,:,'close']
 
     end_points = endpoints(period=p.frequency, trading_days=prices.index)
     prices_m = prices.loc[end_points]
@@ -32,3 +32,24 @@ def compute_weights_PMA(name, parameters):
     # p_value.plot(figsize=(15, 10), grid=True, legend=True, label=name)
 
     return p_value, p_holdings, p_weights, prices
+
+
+if __name__ == "__main__":
+
+    from datetime import datetime, timezone, timedelta
+    import pytz
+
+    start = datetime(2010, 1, 1, 0, 0, 0, 0, pytz.utc)
+    end = datetime(2011, 1, 1, 0, 0, 0, 0, pytz.utc)
+#     end = datetime.today().replace(tzinfo=timezone.utc)        # to test for 'today'
+    strategies = {
+
+        'PMA003': {'symbols': ['VCVSX', 'FAGIX', 'VGHCX'],
+               'prices':'yahoo', 'start':start, 'end':end,
+               'risk_lookback': 2, 'frequency': 'M', 'allocations': [1./3., 1./3., 1./3.],
+              'cash_proxy': 'VUSTX'}}
+
+    p_value, p_holdings, p_weights, prices = compute_weights_PMA('PMA003', strategies['PMA003'])
+
+
+    print(p_value)

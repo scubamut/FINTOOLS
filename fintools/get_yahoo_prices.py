@@ -1,4 +1,7 @@
-#from . import set_start_end
+# NO LONGER USED!!
+# USE get_DataArray INSTEAD
+
+
 from fintools.set_start_end import set_start_end
 
 def get_yahoo_prices(p):
