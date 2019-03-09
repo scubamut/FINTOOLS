@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
-import pyfolio as pf
-from collections import OrderedDict
+
 import sklearn.covariance
 
 import cvxopt as opt

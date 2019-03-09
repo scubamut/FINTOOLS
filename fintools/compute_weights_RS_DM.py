@@ -1,17 +1,22 @@
 def compute_weights_RS_DM(name, parameters):
-
     import pandas as pd
-    from fintools.Parameters import Parameters
-    from fintools.get_DataArray import get_DataArray
-    from fintools.endpoints import endpoints
-    from fintools.backtest import backtest
+    from fintools import Parameters, get_DataArray, endpoints, backtest
 
     print('Strategy : {}'.format(name))
 
     p = Parameters(parameters)
 
-    da = get_DataArray(p.symbols,p.start,p.end)
-    prices = da.to_pandas().transpose(1,2,0)[:,:,'close']
+    tickers = p.symbols.copy()
+    if p.cash_proxy != 'CASHX':
+        tickers = list(set(tickers + [p.cash_proxy]))
+    try:
+        if isinstance(p.risk_free, str):
+            tickers = list(set(tickers + [p.risk_free]))
+    except:
+        pass
+
+    da = get_DataArray(tickers, p.start, p.end)
+    prices = da.to_pandas().transpose(1, 2, 0)[:, :, 'close']
 
     end_points = endpoints(period=p.frequency, trading_days=prices.index)
     prices_m = prices.loc[end_points]
@@ -52,22 +57,23 @@ def compute_weights_RS_DM(name, parameters):
 
     return p_value, p_holdings, p_weights, prices
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
+    import pandas as pd
     from datetime import datetime, timezone, timedelta
     import pytz
 
     start = datetime(2010, 1, 1, 0, 0, 0, 0, pytz.utc)
-    end = datetime(2018, 1, 10, 0, 0, 0, 0, pytz.utc)
-#     end = datetime.today().replace(tzinfo=timezone.utc)        # to test for 'today'
+    end = datetime(2011, 1, 1, 0, 0, 0, 0, pytz.utc)
+    #     end = datetime.today().replace(tzinfo=timezone.utc)        # to test for 'today'
+
     strategies = {
 
-        'RS0001': { 'symbols': ['CWB','HYG','MBB','IEF','HYD'],
-               'prices':'yahoo', 'start':start, 'end':end,
-               'rs_lookback': 1, 'risk_lookback': 1, 'n_top': 2, 'frequency': 'M',
-              'cash_proxy': 'CASHX', 'risk_free': 0}}
+        'RS0001': {'symbols': ['CWB', 'HYG', 'MBB', 'IEF', 'HYD'],
+                   'prices': 'yahoo', 'start': start, 'end': end,
+                   'rs_lookback': 1, 'risk_lookback': 1, 'n_top': 2, 'frequency': 'M',
+                   'cash_proxy': 'CASHX', 'risk_free': 0}}
 
     p_value, p_holdings, p_weights, prices = compute_weights_RS_DM('RS0001', strategies['RS0001'])
 
-
-    print(p_value)
+    print(p_value[-5:])

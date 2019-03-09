@@ -1,11 +1,8 @@
-#import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import datetime as dt
-from pandas_datareader import data
 from math import sqrt
 import math
-
 
 #############################
 # FINANCIAL HELPER ROUTINES #
@@ -112,7 +109,6 @@ def print_stats(equity, risk_free=0) :
     print ('CVAR 5%       : ', compute_cvar(d_returns[1:]))
     print ('% POSITIVE MONTHS       : ', compute_percent_positive_months(equity))
 
-#from zipline.utils import tradingcalendar
 
 def endpoints(start=None, end=None, period='M', trading_days=None) :
     
@@ -183,7 +179,6 @@ def generate_orders(transactions, prices) :
                     orders = orders.append([[t.name.date().year, t.name.date().month, t.name.date().day, t.index[j],\
                                              'Buy', abs(t[j]), prices.ix[t.name][t.index[j]]]])
     orders.columns = ['Year', 'Month', 'Day', 'Symbol', 'Action', 'Qty', 'Price']
-    orders
     return orders
 
 
@@ -319,8 +314,7 @@ def market_sim(orders, prices, capital, commission=0.):
             holdings.ix[date][orders.Symbol[i]] -= orders['Qty'][i]
             port_value.ix[date]['Cash'] +=  orders['Qty'][i] * prices.ix[date][orders.Symbol[i]]
         else:
-            print ('Bad order')
-            raise
+            raise ValueError('Bad Order')
 
     port_value = port_value.cumsum()
     holdings = holdings.cumsum()
@@ -397,6 +391,8 @@ def get_history(symbols, start, end, data_path, visible=False):
     return pdata.ix[:, start:end, :]
 
 def get_trading_dates(start, end, offset=0):
+
+    from zipline.utils import tradingcalendar
     
     ''' to create a list of trading dates (timestamps) for use with Zipline or Quantopian.
          offset = 0 -> 1st trading day of month, offset = -1 -> last trading day of month.

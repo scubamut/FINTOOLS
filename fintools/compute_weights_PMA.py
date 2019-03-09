@@ -9,7 +9,16 @@ def compute_weights_PMA(name, parameters):
 
     p = Parameters(parameters)
 
-    da = get_DataArray(p.symbols,p.start,p.end)
+    tickers = p.symbols.copy()
+    if p.cash_proxy != 'CASHX':
+        tickers = list(set(tickers + [p.cash_proxy]))
+    try:
+        if isinstance(p.risk_free, str):
+            tickers = list(set(tickers + [p.risk_free]))
+    except:
+        pass
+
+    da = get_DataArray(tickers, p.start, p.end)
     prices = da.to_pandas().transpose(1,2,0)[:,:,'close']
 
     end_points = endpoints(period=p.frequency, trading_days=prices.index)
@@ -36,6 +45,7 @@ def compute_weights_PMA(name, parameters):
 
 if __name__ == "__main__":
 
+    import pandas as pd
     from datetime import datetime, timezone, timedelta
     import pytz
 
@@ -52,4 +62,4 @@ if __name__ == "__main__":
     p_value, p_holdings, p_weights, prices = compute_weights_PMA('PMA003', strategies['PMA003'])
 
 
-    print(p_value)
+    print(p_value[-5:])

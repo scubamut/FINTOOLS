@@ -1,13 +1,9 @@
-# NO LONGER USED!!
-# USE get_DataArray INSTEAD
-
-
-from fintools.set_start_end import set_start_end
-
 def get_yahoo_prices(p):
-
     from pandas_datareader import data
-    from datetime import datetime
+    from fintools import set_start_end
+
+    if not isinstance(p.start, str) & isinstance(p.end, str):
+        raise TypeError('format of start & end must be "YYYY-MM-DD')
 
     if isinstance(p.prices, str):
         if p.prices == 'yahoo':
@@ -17,14 +13,16 @@ def get_yahoo_prices(p):
             try:
                 if isinstance(p.risk_free, str):
                     tickers = list(set(tickers + [p.risk_free]))
-
             except:
                 pass
 
             if p.start >= p.end:
-                raise ('start must be < end')
+                raise ValueError('start must be < end')
 
-            start, end = set_start_end(start=p.start)
+            if not isinstance(p.start, str) & isinstance(p.end, str):
+                raise TypeError('format of start and end must be "YYYY-MM-DD"')
+
+            start, end = set_start_end(start=p.start, end=p.end)
 
             data_panel = data.DataReader(tickers, "yahoo", start, end)
 
@@ -32,4 +30,4 @@ def get_yahoo_prices(p):
 
             return close.copy().dropna()
     else:
-         return p.prices
+        return p.prices
