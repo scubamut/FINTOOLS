@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='fintools',
-    version='0.2.1',
+    version='0.2.2',
     author='Dave Gilbert',
     author_email='scubamut @gmail.com',
     packages=['fintools'],

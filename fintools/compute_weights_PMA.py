@@ -55,11 +55,11 @@ if __name__ == "__main__":
     strategies = {
 
         'PMA003': {'symbols': ['VCVSX', 'FAGIX', 'VGHCX'],
-               'prices':'yahoo', 'start':start, 'end':end,
+               'start':start, 'end':end,
                'risk_lookback': 2, 'frequency': 'M', 'allocations': [1./3., 1./3., 1./3.],
               'cash_proxy': 'VUSTX'}}
 
-    p_value, p_holdings, p_weights, prices = compute_weights_PMA('PMA003', strategies['PMA003'])
+    p_value, p_holdings, p_weights, p_prices = compute_weights_PMA('PMA003', strategies['PMA003'])
 
 
     print(p_value[-5:])

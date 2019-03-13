@@ -6,8 +6,8 @@ def get_DataArray(assets, start, end):
     INPUTS:
     *******
     assets : list of ETFs
-    start  : earliest date as 'yyyy-mm-dd'
-    end    : end date as 'yyyy-mm-dd'
+    start  : earliest date as datetime tz-aware
+    end    : end date as datetime tz-aware
 
     NOTE: funds are not traded 'today', so 'today' prices are copied from yesterdays' prices
 

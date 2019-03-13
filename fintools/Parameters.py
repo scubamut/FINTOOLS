@@ -6,10 +6,6 @@ class Parameters():
 			self.symbols = parameters['symbols']
 		else:
 			None
-		if 'prices' in parameters:
-			self.prices = parameters['prices']
-		else:
-			None
 		if 'start' in parameters:
 			self.start = parameters['start']
 		else:

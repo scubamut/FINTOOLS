@@ -70,10 +70,10 @@ if __name__ == "__main__":
     strategies = {
 
         'RS0001': {'symbols': ['CWB', 'HYG', 'MBB', 'IEF', 'HYD'],
-                   'prices': 'yahoo', 'start': start, 'end': end,
+                   'start': start, 'end': end,
                    'rs_lookback': 1, 'risk_lookback': 1, 'n_top': 2, 'frequency': 'M',
                    'cash_proxy': 'CASHX', 'risk_free': 0}}
 
-    p_value, p_holdings, p_weights, prices = compute_weights_RS_DM('RS0001', strategies['RS0001'])
+    p_value, p_holdings, p_weights, p_prices = compute_weights_RS_DM('RS0001', strategies['RS0001'])
 
     print(p_value[-5:])
