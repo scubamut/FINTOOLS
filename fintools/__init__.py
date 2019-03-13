@@ -17,3 +17,4 @@ from fintools.show_return_table import show_return_table
 from fintools.show_annual_returns import show_annual_returns
 from fintools.get_DataArray import get_DataArray
 from fintools.make_pipeline_engine import make_pipeline_engine
+from fintools.get_tiingo_prices import get_tiingo_prices
