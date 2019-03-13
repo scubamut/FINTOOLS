@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a19e0290-29ee-40af-b0c7-96e5aea8d2a2" name="Default" comment="&#10;1. add get_tiingo_data&#10;2. bump version to 0.2.2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="a19e0290-29ee-40af-b0c7-96e5aea8d2a2" name="Default" comment="&#10;1. removed 'prices' from Parameters and from compute_weights&#10;2. bumped version to 0.2.2">
       <change beforePath="$PROJECT_DIR$/conda/meta.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/conda/meta.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fintools/Parameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/fintools/Parameters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintools/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/fintools/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fintools/compute_weights_PMA.py" beforeDir="false" afterPath="$PROJECT_DIR$/fintools/compute_weights_PMA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fintools/compute_weights_RS_DM.py" beforeDir="false" afterPath="$PROJECT_DIR$/fintools/compute_weights_RS_DM.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fintools/get_DataArray.py" beforeDir="false" afterPath="$PROJECT_DIR$/fintools/get_DataArray.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fintools/portfolio_helper_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/fintools/portfolio_helper_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
@@ -20,24 +19,27 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fintools/compute_weights_PMA.py">
+        <entry file="file://$PROJECT_DIR$/fintools/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="285">
+              <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fintools/backtest.py">
+        <entry file="file://$PROJECT_DIR$/fintools/compute_weights_PMA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="55" lean-forward="true" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+            <state relative-caret-position="616">
+              <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fintools/get_yahoo_prices.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -47,10 +49,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fintools/get_tiingo_prices.py">
+        <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="52" lean-forward="true" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
+            <state relative-caret-position="60">
+              <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -58,33 +60,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fintools/get_DataArray.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-300">
+            <state relative-caret-position="-333">
               <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fintools/make_pipeline_engine.py">
+        <entry file="file://$PROJECT_DIR$/fintools/compute_weights_RS_DM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1683">
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="631">
+              <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fintools/new_get_yahoo_data.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/conda/meta.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fintools/Parameters.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+            <state relative-caret-position="75">
+              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -94,7 +98,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-45">
               <folding>
-                <element signature="e#1#20#0" expanded="true" />
+                <element signature="e#0#77#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -104,7 +108,7 @@
         <entry file="file://$PROJECT_DIR$/fintools/set_start_end.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="33" lean-forward="true" selection-end-line="23" selection-end-column="59" />
+              <caret line="2" column="33" selection-end-line="23" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -117,6 +121,14 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>symbols</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>assets</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Rebase.Settings">
     <option name="SHOW_TAGS" value="true" />
@@ -149,14 +161,14 @@
         <option value="$PROJECT_DIR$/fintools/allocation_helper_functions.py" />
         <option value="$PROJECT_DIR$/fintools/get_TiingoData.py" />
         <option value="$PROJECT_DIR$/fintools/get_tiingo_prices.py" />
-        <option value="$PROJECT_DIR$/fintools/__init__.py" />
-        <option value="$PROJECT_DIR$/fintools/get_DataArray.py" />
-        <option value="$PROJECT_DIR$/fintools/compute_weights_PMA.py" />
-        <option value="$PROJECT_DIR$/fintools/compute_weights_RS_DM.py" />
+        <option value="$PROJECT_DIR$/fintools/portfolio_helper_functions.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/conda/meta.yaml" />
+        <option value="$PROJECT_DIR$/fintools/get_DataArray.py" />
+        <option value="$PROJECT_DIR$/fintools/__init__.py" />
+        <option value="$PROJECT_DIR$/fintools/compute_weights_RS_DM.py" />
+        <option value="$PROJECT_DIR$/fintools/compute_weights_PMA.py" />
         <option value="$PROJECT_DIR$/fintools/Parameters.py" />
-        <option value="$PROJECT_DIR$/fintools/portfolio_helper_functions.py" />
       </list>
     </option>
   </component>
@@ -219,8 +231,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyBacktester" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fintools" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
+    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/fintools" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -457,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552470965921</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="&#10;1. removed 'prices' from Parameters and from compute_weights&#10;2. bumped version to 0.2.2">
+      <created>1552488454964</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1552488454964</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -568,7 +588,8 @@
     <MESSAGE value="update __init__ and portfolio_helper_functions" />
     <MESSAGE value="update __init__ and portfolio_helper_functions&#10;1. fixed get_yahoo_prices&#10;2. fixed set_start_end&#10;3. fixed both compute_weight routines&#10;4. bump to 0.2.0" />
     <MESSAGE value="&#10;1. add get_tiingo_data&#10;2. bump version to 0.2.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;1. add get_tiingo_data&#10;2. bump version to 0.2.1" />
+    <MESSAGE value="&#10;1. removed 'prices' from Parameters and from compute_weights&#10;2. bumped version to 0.2.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;1. removed 'prices' from Parameters and from compute_weights&#10;2. bumped version to 0.2.2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -725,23 +746,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fintools/__init__.py">
+    <entry file="file://$PROJECT_DIR$/fintools/cla.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fintools/backtest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+        <state relative-caret-position="210">
+          <caret line="14" column="55" lean-forward="true" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fintools/get_tiingo_prices.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="52" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fintools/make_pipeline_engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1683">
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fintools/cla.py">
+    <entry file="file://$PROJECT_DIR$/fintools/new_get_yahoo_data.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/fintools/compute_weights_RS_DM.py">
+    <entry file="file://$PROJECT_DIR$/fintools/set_start_end.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="78" column="23" lean-forward="true" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
+        <state relative-caret-position="30">
+          <caret line="2" column="33" selection-end-line="23" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fintools/get_yahoo_prices.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -759,36 +803,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fintools/backtest.py">
+    <entry file="file://$PROJECT_DIR$/fintools/get_DataArray.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="55" lean-forward="true" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+        <state relative-caret-position="-333">
+          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fintools/get_tiingo_prices.py">
+    <entry file="file://$PROJECT_DIR$/fintools/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="52" lean-forward="true" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fintools/make_pipeline_engine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1683">
+        <state relative-caret-position="285">
+          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fintools/new_get_yahoo_data.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fintools/Parameters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -796,36 +824,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-45">
           <folding>
-            <element signature="e#1#20#0" expanded="true" />
+            <element signature="e#0#77#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fintools/set_start_end.py">
+    <entry file="file://$PROJECT_DIR$/fintools/compute_weights_RS_DM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="33" lean-forward="true" selection-end-line="23" selection-end-column="59" />
+        <state relative-caret-position="631">
+          <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fintools/compute_weights_PMA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="616">
+          <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fintools/get_DataArray.py">
+    <entry file="file://$PROJECT_DIR$/fintools/Parameters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-300">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fintools/get_yahoo_prices.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="24" selection-start-column="24" selection-end-column="24" />
+        <state relative-caret-position="75">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
         </state>
       </provider>
     </entry>

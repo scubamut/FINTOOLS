@@ -9,7 +9,7 @@ def compute_weights_PMA(name, parameters):
 
     p = Parameters(parameters)
 
-    tickers = p.symbols.copy()
+    tickers = p.assets.copy()
     if p.cash_proxy != 'CASHX':
         tickers = list(set(tickers + [p.cash_proxy]))
     try:
@@ -27,13 +27,13 @@ def compute_weights_PMA(name, parameters):
     # elligibility rule
     SMA = prices_m.rolling(p.risk_lookback).mean().dropna()
     rebalance_dates = SMA.index
-    rule = prices_m.loc[rebalance_dates][p.symbols] > SMA[p.symbols]
+    rule = prices_m.loc[rebalance_dates][p.assets] > SMA[p.assets]
 
     # fixed weight allocation
     weights = p.allocations * rule
 
     # downside protection
-    weights[p.cash_proxy] = 1 - weights[p.symbols].sum(axis=1)
+    weights[p.cash_proxy] = 1 - weights[p.assets].sum(axis=1)
 
     # backtest
     p_value, p_holdings, p_weights = backtest(prices, weights, 10000., offset=0, commission=10.)
@@ -54,12 +54,12 @@ if __name__ == "__main__":
 #     end = datetime.today().replace(tzinfo=timezone.utc)        # to test for 'today'
     strategies = {
 
-        'PMA003': {'symbols': ['VCVSX', 'FAGIX', 'VGHCX'],
+        'PMA003': {'assets': ['VCVSX', 'FAGIX', 'VGHCX'],
                'start':start, 'end':end,
                'risk_lookback': 2, 'frequency': 'M', 'allocations': [1./3., 1./3., 1./3.],
               'cash_proxy': 'VUSTX'}}
 
-    p_value, p_holdings, p_weights, p_prices = compute_weights_PMA('PMA003', strategies['PMA003'])
+    p_value, p_holdings, p_weights, prices = compute_weights_PMA('PMA003', strategies['PMA003'])
 
 
     print(p_value[-5:])

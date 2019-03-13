@@ -2,8 +2,8 @@ class Parameters():
 
 	def __init__(self, parameters):
 
-		if 'symbols' in parameters:
-			self.symbols = parameters['symbols']
+		if 'assets' in parameters:
+			self.assets = parameters['assets']
 		else:
 			None
 		if 'start' in parameters:

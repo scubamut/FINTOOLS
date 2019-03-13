@@ -6,7 +6,7 @@ def compute_weights_RS_DM(name, parameters):
 
     p = Parameters(parameters)
 
-    tickers = p.symbols.copy()
+    tickers = p.assets.copy()
     if p.cash_proxy != 'CASHX':
         tickers = list(set(tickers + [p.cash_proxy]))
     try:
@@ -21,7 +21,7 @@ def compute_weights_RS_DM(name, parameters):
     end_points = endpoints(period=p.frequency, trading_days=prices.index)
     prices_m = prices.loc[end_points]
 
-    returns = prices_m[p.symbols].pct_change(p.rs_lookback)[p.rs_lookback:]
+    returns = prices_m[p.assets].pct_change(p.rs_lookback)[p.rs_lookback:]
 
     if isinstance(p.risk_free, int):
         excess_returns = returns
@@ -29,12 +29,12 @@ def compute_weights_RS_DM(name, parameters):
         risk_free_returns = prices_m[p.risk_free].pct_change(p.rs_lookback)[p.rs_lookback:]
         excess_returns = returns.subtract(risk_free_returns, axis=0).dropna()
 
-    absolute_momentum = prices_m[p.symbols].pct_change(p.risk_lookback)[p.risk_lookback:]
+    absolute_momentum = prices_m[p.assets].pct_change(p.risk_lookback)[p.risk_lookback:]
     absolute_momentum_rule = absolute_momentum > 0
     rebalance_dates = excess_returns.index.join(absolute_momentum_rule.index, how='inner')
 
     # relative strength ranking
-    ranked = excess_returns.loc[rebalance_dates][p.symbols].rank(ascending=False, axis=1, method='dense')
+    ranked = excess_returns.loc[rebalance_dates][p.assets].rank(ascending=False, axis=1, method='dense')
     # elligibility rule - top n_top ranked securities
     elligible = ranked[ranked <= p.n_top] > 0
 
@@ -46,8 +46,8 @@ def compute_weights_RS_DM(name, parameters):
     if p.cash_proxy == 'CASHX':
         weights[p.cash_proxy] = 0
         prices[p.cash_proxy] = 1.
-    weights[p.symbols] = (elligible * absolute_momentum_rule).dropna()
-    weights[p.cash_proxy] += 1 - weights[p.symbols].sum(axis=1)
+    weights[p.assets] = (elligible * absolute_momentum_rule).dropna()
+    weights[p.cash_proxy] += 1 - weights[p.assets].sum(axis=1)
 
     # backtest
 
@@ -69,11 +69,11 @@ if __name__ == "__main__":
 
     strategies = {
 
-        'RS0001': {'symbols': ['CWB', 'HYG', 'MBB', 'IEF', 'HYD'],
+        'RS0001': {'assets': ['CWB', 'HYG', 'MBB', 'IEF', 'HYD'],
                    'start': start, 'end': end,
                    'rs_lookback': 1, 'risk_lookback': 1, 'n_top': 2, 'frequency': 'M',
                    'cash_proxy': 'CASHX', 'risk_free': 0}}
 
-    p_value, p_holdings, p_weights, p_prices = compute_weights_RS_DM('RS0001', strategies['RS0001'])
+    p_value, p_holdings, p_weights, prices = compute_weights_RS_DM('RS0001', strategies['RS0001'])
 
     print(p_value[-5:])
