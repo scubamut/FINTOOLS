@@ -19,7 +19,7 @@ def compute_weights_PMA(name, parameters):
         pass
 
     da = get_DataArray(tickers, p.start, p.end)
-    prices = da.to_pandas().transpose(1,2,0)[:,:,'close']
+    prices = da.to_pandas().transpose(1,2,0)[:,:,'adj close']
 
     end_points = endpoints(period=p.frequency, trading_days=prices.index)
     prices_m = prices.loc[end_points]
