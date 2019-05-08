@@ -89,11 +89,13 @@ def get_daily_10yr_treasury_data():
                        squeeze=True)
 
 ###################################################################################
-start_date = datetime(2008, 1, 1, 0, 0, 0, 0, pytz.utc)
-end_date = datetime(2012, 1, 1, 0, 0, 0, 0, pytz.utc)
+# to get treasury curves
+if __name__ == "__main__":
+    start_date = datetime(2008, 1, 1, 0, 0, 0, 0, pytz.utc)
+    end_date = datetime(2012, 1, 1, 0, 0, 0, 0, pytz.utc)
 
-tc = get_treasury_data(start_date, end_date)
-tc.to_csv('/home/scubamut/.zipline/data/treasury_curves.csv')
+    tc = get_treasury_data(start_date, end_date)
+    tc.to_csv('/home/scubamut/.zipline/data/treasury_curves.csv')
 
-print(tc)
+    print(tc)
 
