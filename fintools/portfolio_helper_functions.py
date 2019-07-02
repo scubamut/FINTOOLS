@@ -70,7 +70,7 @@ def compute_efficient_portfolio(mu_vec, sigma_mat, target_return, shorts=True):
     if len(mu_vec) != len(sigma_mat):
         print("dimensions of mu_vec and sigma_mat do not match")
         raise()
-    if np.matrix([sigma_mat.ix[i][i] for i in range(len(sigma_mat))]).any() <= 0:
+    if np.matrix([sigma_mat.iloc[i][i] for i in range(len(sigma_mat))]).any() <= 0:
         print('Covariance matrix not positive definite')
         raise()
 
@@ -150,11 +150,11 @@ def compute_efficient_frontier(mu_vec, sigma_mat, risk_free=0, points=100, short
         xmax = 2 * mu_vec.max()
     for i, mu in enumerate(np.linspace(gmin_mu, xmax, points)):
         w_vec, portfolio_mu, portfolio_sigma = compute_efficient_portfolio(mu_vec, sigma_mat, mu, shorts=shorts)
-        efficient_frontier.ix[i]['mu_p'] = w_vec.dot(mu_vec)
-        efficient_frontier.ix[i]['sig_p'] = np.sqrt(w_vec.T.dot(sigma_mat.dot(w_vec)))
-        efficient_frontier.ix[i]['sr_p'] = (efficient_frontier.ix[i]['mu_p'] - risk_free) / efficient_frontier.ix[i][
+        efficient_frontier.iloc[i]['mu_p'] = w_vec.dot(mu_vec)
+        efficient_frontier.iloc[i]['sig_p'] = np.sqrt(w_vec.T.dot(sigma_mat.dot(w_vec)))
+        efficient_frontier.iloc[i]['sr_p'] = (efficient_frontier.iloc[i]['mu_p'] - risk_free) / efficient_frontier.iloc[i][
             'sig_p']
-        efficient_frontier.ix[i]['wts_p'] = w_vec
+        efficient_frontier.iloc[i]['wts_p'] = w_vec
 
     return efficient_frontier
 
