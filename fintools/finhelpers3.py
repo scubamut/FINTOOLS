@@ -185,7 +185,7 @@ def generate_orders(transactions, prices) :
 def save_portfolio_metrics (portfolios, portfolio_name, period_ends, prices, \
                             p_value, p_weights, p_holdings, path=None, risk_free=0) :
         
-    rebalance_qtys = (p_weights.loc[period_ends] / prices.loc[period_ends]) * p_value.loc[period_ends]
+    rebalance_qtys = (p_weights.reindex(period_ends) / prices.reindex(period_ends) * p.values).dropna()
     #p_holdings = rebalance_qtys.align(prices)[0].shift(1).ffill().fillna(0)
     transactions = (p_holdings - p_holdings.shift(1).fillna(0))
     transactions = transactions[transactions.sum(1) != 0]
