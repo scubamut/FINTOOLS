@@ -174,10 +174,10 @@ def generate_orders(transactions, prices) :
             if qty >= 1.:
                 if transactions.iloc[i][j] < 0 :
                     orders = orders.append([[t.name.date().year, t.name.date().month, t.name.date().day, t.index[j],\
-                                             'Sell', abs(t[j]), prices.iloc[t.name][t.index[j]]]])
+                                             'Sell', abs(t[j]), prices.loc[t.name][t.index[j]]]])
                 if transactions.iloc[i][j] > 0 :
                     orders = orders.append([[t.name.date().year, t.name.date().month, t.name.date().day, t.index[j],\
-                                             'Buy', abs(t[j]), prices.iloc[t.name][t.index[j]]]])
+                                             'Buy', abs(t[j]), prices.loc[t.name][t.index[j]]]])
     orders.columns = ['Year', 'Month', 'Day', 'Symbol', 'Action', 'Qty', 'Price']
     return orders
 
@@ -185,7 +185,7 @@ def generate_orders(transactions, prices) :
 def save_portfolio_metrics (portfolios, portfolio_name, period_ends, prices, \
                             p_value, p_weights, p_holdings, path=None, risk_free=0) :
         
-    rebalance_qtys = (p_weights.reindex(period_ends) / prices.reindex(period_ends) * p_values).dropna()
+    rebalance_qtys = (p_weights.reindex(period_ends) / prices.reindex(period_ends) * p_value).dropna()
     #p_holdings = rebalance_qtys.align(prices)[0].shift(1).ffill().fillna(0)
     transactions = (p_holdings - p_holdings.shift(1).fillna(0))
     transactions = transactions[transactions.sum(1) != 0]
