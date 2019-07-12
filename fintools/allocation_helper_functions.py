@@ -194,7 +194,7 @@ def generateData(nObs, sLength, size0, size1, mu0, sigma0, sigma1F):
     x = np.append(x, y, axis=1)
     # 3) add common random shock
     point = np.random.randint(sLength, nObs - 1, size=2)
-    x[np.ix_(point, [cols[0], size0])] = np.array([[-.5, -.5], [2, 2]])
+    x[np.iloc_(point, [cols[0], size0])] = np.array([[-.5, -.5], [2, 2]])
     # 4) add specific random shock
     point = np.random.randint(sLength, nObs - 1, size=2)
 

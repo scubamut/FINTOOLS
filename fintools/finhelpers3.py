@@ -12,7 +12,7 @@ def compute_nyears(x) :
     return np.double((x.index[-1] - x.index[0]).days) / 365.
 
 def compute_cagr(equity) :
-    return np.double((equity.ix[-1] / equity.ix[0]) ** (1. / compute_nyears(equity)) - 1)
+    return np.double((equity.iloc[-1] / equity.iloc[0]) ** (1. / compute_nyears(equity)) - 1)
 
 def compute_annual_factor(equity) :
     # possible_values = [252,52,26,13,12,6,4,3,2,1]
@@ -143,13 +143,13 @@ def add_portfolio(name, portfolios) :
 def ntop(prices, n) :
     weights = pd.DataFrame(0., index=prices.index, columns=prices.columns)
     for i in range(len(prices)) :
-        n_not_na = prices.ix[i].count()
+        n_not_na = prices.iloc[i].count()
         n_row = min(n, n_not_na) 
         for s in prices.columns :
-            if prices.ix[i][s] <= n :
-                weights.ix[i][s] = 1. / n_row
+            if prices.iloc[i][s] <= n :
+                weights.iloc[i][s] = 1. / n_row
             else :
-                weights.ix[i][s] = 0.
+                weights.iloc[i][s] = 0.
     
     return weights
 
@@ -169,15 +169,15 @@ def generate_orders(transactions, prices) :
     orders = pd.DataFrame()
     for i in range(len(transactions)):
         for j in range(len(transactions.columns)):
-            t = transactions.ix[i]
+            t = transactions.iloc[i]
             qty = abs(t[j])
             if qty >= 1.:
-                if transactions.ix[i][j] < 0 :
+                if transactions.iloc[i][j] < 0 :
                     orders = orders.append([[t.name.date().year, t.name.date().month, t.name.date().day, t.index[j],\
-                                             'Sell', abs(t[j]), prices.ix[t.name][t.index[j]]]])
-                if transactions.ix[i][j] > 0 :
+                                             'Sell', abs(t[j]), prices.iloc[t.name][t.index[j]]]])
+                if transactions.iloc[i][j] > 0 :
                     orders = orders.append([[t.name.date().year, t.name.date().month, t.name.date().day, t.index[j],\
-                                             'Buy', abs(t[j]), prices.ix[t.name][t.index[j]]]])
+                                             'Buy', abs(t[j]), prices.iloc[t.name][t.index[j]]]])
     orders.columns = ['Year', 'Month', 'Day', 'Symbol', 'Action', 'Qty', 'Price']
     return orders
 
@@ -185,7 +185,7 @@ def generate_orders(transactions, prices) :
 def save_portfolio_metrics (portfolios, portfolio_name, period_ends, prices, \
                             p_value, p_weights, p_holdings, path=None, risk_free=0) :
         
-    rebalance_qtys = (p_weights.ix[period_ends] / prices.ix[period_ends]) * p_value.ix[period_ends]
+    rebalance_qtys = (p_weights.iloc[period_ends] / prices.iloc[period_ends]) * p_value.iloc[period_ends]
     #p_holdings = rebalance_qtys.align(prices)[0].shift(1).ffill().fillna(0)
     transactions = (p_holdings - p_holdings.shift(1).fillna(0))
     transactions = transactions[transactions.sum(1) != 0]
@@ -201,7 +201,7 @@ def save_portfolio_metrics (portfolios, portfolio_name, period_ends, prices, \
     portfolios[portfolio_name]['sharpe'] = compute_sharpe(p_value, risk_free)
     portfolios[portfolio_name]['weight'] = p_weights
     portfolios[portfolio_name]['transactions'] = transactions
-    portfolios[portfolio_name]['period_return'] = 100 * (p_value.ix[-1] / p_value[0] - 1)
+    portfolios[portfolio_name]['period_return'] = 100 * (p_value.iloc[-1] / p_value[0] - 1)
     portfolios[portfolio_name]['avg_monthly_return'] = p_index.resample('BM').last().pct_change().mean() * 100
     portfolios[portfolio_name]['monthly_return_table'] = monthly_return_table(m_rets)
     portfolios[portfolio_name]['drawdowns'] = compute_drawdown(p_value).dropna()
@@ -305,14 +305,14 @@ def market_sim(orders, prices, capital, commission=0.):
     port_value['Cash'][0] += capital
 
     for i in range(len(orders)):
-        date = dt.datetime(orders.ix[i].Year,orders.ix[i].Month,orders.ix[i].Day)
+        date = dt.datetime(orders.iloc[i].Year,orders.iloc[i].Month,orders.iloc[i].Day)
 
-        if orders.ix[i]['Action'] == 'Buy':
-            holdings.ix[date][orders.Symbol[i]] += orders['Qty'][i]
-            port_value.ix[date]['Cash'] -= orders['Qty'][i] * prices.ix[date][orders.Symbol[i]]
-        elif orders.ix[i]['Action'] == 'Sell':
-            holdings.ix[date][orders.Symbol[i]] -= orders['Qty'][i]
-            port_value.ix[date]['Cash'] +=  orders['Qty'][i] * prices.ix[date][orders.Symbol[i]]
+        if orders.iloc[i]['Action'] == 'Buy':
+            holdings.iloc[date][orders.Symbol[i]] += orders['Qty'][i]
+            port_value.iloc[date]['Cash'] -= orders['Qty'][i] * prices.iloc[date][orders.Symbol[i]]
+        elif orders.iloc[i]['Action'] == 'Sell':
+            holdings.iloc[date][orders.Symbol[i]] -= orders['Qty'][i]
+            port_value.iloc[date]['Cash'] +=  orders['Qty'][i] * prices.iloc[date][orders.Symbol[i]]
         else:
             raise ValueError('Bad Order')
 
@@ -388,7 +388,7 @@ def get_history(symbols, start, end, data_path, visible=False):
                      index_col='Date', parse_dates=True).sort_index(ascending=True)) for i in range(len(symbols_ls))) )
 
 
-    return pdata.ix[:, start:end, :]
+    return pdata.iloc[:, start:end, :]
 
 def get_trading_dates(start, end, offset=0):
 
