@@ -190,7 +190,7 @@ def save_portfolio_metrics (portfolios, portfolio_name, period_ends, prices, \
     transactions = (p_holdings - p_holdings.shift(1).fillna(0))
     transactions = transactions[transactions.sum(1) != 0]
     
-    p_returns = p_value.pct_change(periods=1)
+    p_returns = p_value.pct_change(periods=1)[1:]
     p_index = np.cumproduct(1 + p_returns)
     
     m_rets = (1 + p_returns).resample('M').prod() - 1
@@ -225,11 +225,11 @@ def save_portfolio_metrics (portfolios, portfolio_name, period_ends, prices, \
     portfolios[portfolio_name]['trades'] = len(portfolios[portfolio_name]['orders'])
 
     if path != None :
-        portfolios[portfolio_name].equity.to_csv(path + portfolio_name + '_equity.csv')
-        portfolios[portfolio_name].weight.to_csv(path + portfolio_name + '_weight.csv')
-        portfolios[portfolio_name].share.to_csv(path + portfolio_name + '_share.csv')
-        portfolios[portfolio_name].transactions.to_csv(path + portfolio_name + '_transactions.csv')
-        portfolios[portfolio_name].orders.to_csv(path + portfolio_name + '_orders.csv')
+        portfolios[portfolio_name]['equity'].to_csv(path + portfolio_name + '_equity.csv')
+        portfolios[portfolio_name]['weight'].to_csv(path + portfolio_name + '_weight.csv')
+        portfolios[portfolio_name]['share'].to_csv(path + portfolio_name + '_share.csv')
+        portfolios[portfolio_name]['transactions'].to_csv(path + portfolio_name + '_transactions.csv')
+        portfolios[portfolio_name]['orders'].to_csv(path + portfolio_name + '_orders.csv')
         
     return
 
