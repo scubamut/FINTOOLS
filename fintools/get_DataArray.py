@@ -1,4 +1,4 @@
-def get_DataArray(assets, start, end):
+def get_DataArray(assets, start, end, debug=False):
     '''
     Create pandas MultiIndex DataFrame of Yahoo data to Xarray to_pandas for
     using by zipline strategies.
@@ -8,6 +8,7 @@ def get_DataArray(assets, start, end):
     assets : list of ETFs
     start  : earliest date as datetime tz-aware
     end    : end date as datetime tz-aware
+    debug  : True to print debug info
 
     NOTE: funds are not traded 'today', so 'today' prices are copied from yesterdays' prices
 
@@ -37,7 +38,8 @@ def get_DataArray(assets, start, end):
         try:
             df = pdr.DataReader(asset,'yahoo',str((end.date() - BDay(3)).date()),
                           str(end.date()))
-            print(asset,'OK')
+            if debug:
+                print(asset,'OK')
         except:
             print('***',asset, '>>> UNABLE TO TRADE, DATE:',end)
             unable_to_trade.append(asset)
@@ -49,7 +51,9 @@ def get_DataArray(assets, start, end):
         assets = [asset for asset in assets if asset not in unable_to_trade]
 
     df = pdr.DataReader(assets, 'yahoo', start, end)
-    # print(df[-4:])
+    
+    if debug:
+        print(df[-4:])
 
     # for funds, make sure that row df[-2:] has data (not nans)
     if (df[-2:-1].values>=0).all():
@@ -79,7 +83,8 @@ if __name__ == "__main__":
 #     end = datetime.today().replace(tzinfo=timezone.utc)        # to test for 'today'
 
     da = get_DataArray(assets,start,end)
-
-    print(da.to_pandas().transpose(1,2,0))
+    
+    if debug:
+        print(da.to_pandas().transpose(1,2,0))
 
     # pass
