@@ -32,9 +32,9 @@ def compute_covariance_matrix(returns):
 
 def compute_expected_returns(prices, periods=1, log_returns=False):
     if log_returns:
-        return np.log(1 + prices.pct_change(periods))[1:]
+        return np.log(1 + prices.pct_change(periods))[1:].mean()
     else:
-        return prices.pct_change(periods)[1:]
+        return prices.pct_change(periods)[1:].mean()
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
