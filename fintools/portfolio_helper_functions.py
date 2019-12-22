@@ -18,17 +18,23 @@ import numpy as np
 #    8. compute_expected_returns           compute expected returns vector
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-def compute_covariance_matrix(prices):
+def compute_covariance_matrix(returns):
     # calculates the cov matrix for the period defined by prices
-    returns = np.log(1 + prices.pct_change())[1:]
+    # returns = np.log(1 + prices.pct_change())[1:]
     excess_returns_matrix = returns - returns.mean()
     return 1. / len(returns) * (excess_returns_matrix.T).dot(excess_returns_matrix)
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-def compute_expected_returns(prices):
-    mu_vec = np.log(1 + prices.pct_change(1))[1:].mean()
-    return mu_vec
+# def compute_expected_returns(returns):
+#     mu_vec = np.log(1 + prices.pct_change(1))[1:].mean()
+#     return mu_vec
+
+def compute_expected_returns(prices, periods=1, log_returns=False):
+    if log_returns:
+        return np.log(1 + prices.pct_change(periods))[1:]
+    else:
+        return prices.pct_change(periods)[1:]
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

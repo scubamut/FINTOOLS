@@ -8,8 +8,8 @@ import math
 # FINANCIAL HELPER ROUTINES #
 #############################
 
-def compute_nyears(x) :
-    return np.double((x.index[-1] - x.index[0]).days) / 365.
+def compute_nyears(equity) :
+    return np.double((equity.index[-1] - equity.index[0]).days) / 365.
 
 def compute_cagr(equity) :
     return np.double((equity.iloc[-1] / equity.iloc[0]) ** (1. / compute_nyears(equity)) - 1)
@@ -37,11 +37,11 @@ def compute_sharpe(equity, risk_free=0) :
 def compute_DVR(equity):
     return compute_sharpe(equity) * compute_R2(equity) 
 
-def compute_drawdown(x) :
-    return (x - x.expanding(min_periods=1).max())/x.expanding(min_periods=1).max()
+def compute_drawdown(equity) :
+    return (equity - equity.expanding(min_periods=1).max())/equity.expanding(min_periods=1).max()
 
-def compute_max_drawdown(x):
-    return compute_drawdown(x).min()
+def compute_max_drawdown(equity):
+    return compute_drawdown(equity).min()
 
 def compute_rolling_drawdown(equity) :
     rolling_dd = pd.rolling_apply(equity, 252, compute_max_drawdown, min_periods=0)
@@ -50,8 +50,8 @@ def compute_rolling_drawdown(equity) :
     #plt.plot(df)
     #plt.grid()
 
-def compute_avg_drawdown(x) :
-    drawdown = compute_drawdown(x).shift(-1)
+def compute_avg_drawdown(equity) :
+    drawdown = compute_drawdown(equity).shift(-1)
     drawdown[-1]=0.
     drawdown[0] = 0
     dend = [drawdown.index[i] for i in range(len(drawdown)) if drawdown[i] == 0 and drawdown[i-1] != 0]
@@ -62,8 +62,8 @@ def compute_avg_drawdown(x) :
     f['drawdown'] = [drawdown[f['dstart'][i]:f['dend'][i]].min() for i in range(len(f))]
     return f.drawdown.mean()
 
-def compute_calmar(x) :
-    return compute_cagr(x) / compute_max_drawdown(x)
+def compute_calmar(equity) :
+    return compute_cagr(equity) / compute_max_drawdown(equity)
 
 def compute_R2(equity) :
     x = pd.DataFrame(equity)
@@ -71,9 +71,9 @@ def compute_R2(equity) :
     x[1]=[equity.index[i].toordinal() for i in range(len(equity))]
     return x[0].corr(x[1]) ** 2
 
-def compute_volatility(x) :
-    temp = compute_annual_factor(x)
-    return sqrt(temp) * x.std(ddof=0)
+def compute_volatility(equity) :
+    temp = compute_annual_factor(equity)
+    return sqrt(temp) * equity.std(ddof=0)
 
 def compute_var(d_returns, probs=0.05) :
     return d_returns.quantile(probs)
