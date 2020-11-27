@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a19e0290-29ee-40af-b0c7-96e5aea8d2a2" name="Default" comment="1. 'close' should have beed 'adj close'&#10;2. Bumped version">
+      <change afterPath="$PROJECT_DIR$/fintools/get_Dataset.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,13 +40,7 @@
       </GitPushTagMode>
     </option>
   </component>
-  <component name="JupyterTrust" id="b3841509-eabb-4b7b-99bc-84f824a1eaa5" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1920" />
-    <option name="y" value="311" />
-    <option name="width" value="1366" />
-    <option name="height" value="741" />
-  </component>
+  <component name="JupyterTrust" id="90cb8666-54b6-489f-afbb-ee53022183cd" />
   <component name="ProjectId" id="1UWH4ViYY3HF2Nud3fJzqxLLDUM" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -72,13 +67,19 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/fintools" />
   </component>
@@ -101,7 +102,7 @@
       <recent name="C:\Users\scuba\Google Drive\PycharmProjects\fintools" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.compute_weights_PMA">
+  <component name="RunManager" selected="Python.get_Dataset">
     <configuration name="compute_weights_PMA" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fintools" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -168,6 +169,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="get_Dataset" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fintools" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/fintools" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fintools/get_Dataset.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="get_tiingo_prices" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fintools" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -190,57 +213,24 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="fintools" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.compute_weights_PMA" />
       <item itemvalue="Python.compute_weights_RS_DM" />
       <item itemvalue="Python.get_DataArray" />
       <item itemvalue="Python.get_tiingo_prices" />
-      <item itemvalue="Python.test" />
+      <item itemvalue="Python.get_Dataset" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.get_Dataset" />
         <item itemvalue="Python.compute_weights_PMA" />
         <item itemvalue="Python.get_tiingo_prices" />
         <item itemvalue="Python.get_DataArray" />
         <item itemvalue="Python.compute_weights_RS_DM" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -254,6 +244,7 @@
       <workItem from="1575465247099" duration="65000" />
       <workItem from="1575712399313" duration="24000" />
       <workItem from="1577021320762" duration="610000" />
+      <workItem from="1606395541347" duration="3346000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1517553247658</created>
@@ -343,7 +334,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -360,9 +351,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -381,6 +370,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add conda build stuff" />
@@ -420,6 +410,11 @@
           <url>file://$PROJECT_DIR$/test.py</url>
           <line>2</line>
           <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/fintools/get_Dataset.py</url>
+          <line>75</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
