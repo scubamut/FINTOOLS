@@ -11,6 +11,7 @@ from zipline.pipeline import Pipeline
 from zipline.pipeline.data import USEquityPricing
 from zipline.pipeline.filters import StaticAssets
 from zipline.pipeline.engine import SimplePipelineEngine
+from zipline.pipeline.domain import US_EQUITIES
 
 def make_pipeline_engine(symbols=['SPY', 'TLT'], bundle='etfs_bundle', calendar='NYSE'):
     register(bundle, symbols)
@@ -18,7 +19,7 @@ def make_pipeline_engine(symbols=['SPY', 'TLT'], bundle='etfs_bundle', calendar=
 
     # Set up pipeline engine
     # Loader for pricing
-    pipeline_loader = USEquityPricingLoader(
+    pipeline_loader = USEquityPricingLoader.without_fx(
         bundle_data.equity_daily_bar_reader,
         bundle_data.adjustment_reader,
     )
@@ -34,7 +35,7 @@ def make_pipeline_engine(symbols=['SPY', 'TLT'], bundle='etfs_bundle', calendar=
     trading_calendar = get_calendar(calendar)
     engine = SimplePipelineEngine(
         get_loader=choose_loader,
-        calendar=trading_calendar.all_sessions,
+        # calendar=trading_calendar.all_sessions,
         asset_finder=bundle_data.asset_finder,
     )
 
