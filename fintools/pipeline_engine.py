@@ -5,6 +5,7 @@ def pipeline_engine(pipeline, start_date, end_date, bundle_name):
     from zipline.data.bundles import load, register
     from zipline.pipeline.engine import SimplePipelineEngine
     from zipline.pipeline.loaders import USEquityPricingLoader
+    from zipline.pipeline.data import USEquityPricing
 
     register(bundle_name, [])
     bundle_data = load(bundle_name)
