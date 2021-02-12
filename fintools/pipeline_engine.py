@@ -5,7 +5,6 @@ def pipeline_engine(start_date, end_date, bundle_name):
     from zipline.data.bundles import load, register
     from zipline.pipeline.engine import SimplePipelineEngine
     from zipline.pipeline.loaders import USEquityPricingLoader
-    from zipline.pipeline.domain import US_EQUITIES
 
     register(bundle_name, [])
     bundle_data = load(bundle_name)
@@ -38,6 +37,7 @@ if __name__ == "__main__":
     from zipline.pipeline.factors import AverageDollarVolume
     from zipline.pipeline.data import USEquityPricing
     from zipline.pipeline import Pipeline
+    from zipline.pipeline.domain import US_EQUITIES
 
     # Create a screen for our Pipeline
     universe = AverageDollarVolume(window_length=5).top(5)
