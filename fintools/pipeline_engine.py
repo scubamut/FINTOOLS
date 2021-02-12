@@ -1,7 +1,7 @@
 # REPLACES make_pipeline_engine()
 ####################################
 
-def pipeline_engine(start_date, end_date, bundle_name):
+def pipeline_engine(pipeline, start_date, end_date, bundle_name):
     from zipline.data.bundles import load, register
     from zipline.pipeline.engine import SimplePipelineEngine
     from zipline.pipeline.loaders import USEquityPricingLoader
@@ -47,6 +47,6 @@ if __name__ == "__main__":
     pipeline.add(AverageDollarVolume(window_length=5), "Dollar Volume")
     ##########################################################################################
 
-    pipeline_output = pipeline_engine(start_date, end_date, 'quantopian-quandl')
+    pipeline_output = pipeline_engine(pipeline, start_date, end_date, 'quantopian-quandl')
 
     print(pipeline_output.head)
