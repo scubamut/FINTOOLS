@@ -5,10 +5,7 @@ from datetime import datetime, timezone, timedelta
 import pytz
 
 from zipline.pipeline.loaders import USEquityPricingLoader
-try:
-    from zipline.utils.calendars import get_calendar
-except:
-    from zipline.utils.calendar_utils import get_calendar
+from zipline.utils.calendars import get_calendar
 from zipline.data.bundles import register, load
 from zipline.pipeline import Pipeline
 from zipline.pipeline.data import USEquityPricing
