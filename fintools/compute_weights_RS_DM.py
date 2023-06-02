@@ -1,9 +1,10 @@
 def compute_weights_PMA(name, parameters):
 
     from fintools.Parameters import Parameters
-    from fintools.get_DataArray import get_DataArray
     from fintools.endpoints import endpoints
     from fintools.backtest import backtest
+
+    import yfinance as yf
 
     print(name)
 
@@ -18,8 +19,7 @@ def compute_weights_PMA(name, parameters):
     except:
         pass
 
-    da = get_DataArray(tickers, p.start, p.end)
-    prices = da.sel(Attributes='adj close').transpose().to_pandas().ffill().dropna()
+    prices = yf.download(tickers, p.start, p.end)['Adj Close'].ffill().dropna()
 
     end_points = endpoints(period=p.frequency, trading_days=prices.index)
     prices_m = prices.loc[end_points]
