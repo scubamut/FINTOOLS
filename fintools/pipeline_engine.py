@@ -36,7 +36,7 @@ if __name__ == "__main__":
     # CREATE A PIPELINE
     ###################
     from zipline.pipeline.factors import AverageDollarVolume
-    from zipline.pipeline.data import USEquityPricing
+    # from zipline.pipeline.data import USEquityPricing
     from zipline.pipeline import Pipeline
     from zipline.pipeline.domain import US_EQUITIES
 
