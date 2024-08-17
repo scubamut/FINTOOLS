@@ -11,7 +11,8 @@
 
 import re
 from urllib.request import urlopen, Request, URLError
-import calendar
+# import calendar
+import pandas_market_calendars as mcal
 import datetime
 import getopt
 import sys
@@ -35,6 +36,7 @@ def get_crumble_and_cookie(symbol):
 
 
 def download_quote(symbol, date_from, date_to,events):
+    calendar = mcal.get_calander('NYSE')
     time_stamp_from = calendar.timegm(datetime.datetime.strptime(date_from, "%Y-%m-%d").timetuple())
     next_day = datetime.datetime.strptime(date_to, "%Y-%m-%d") + datetime.timedelta(days=1)
     time_stamp_to = calendar.timegm(next_day.timetuple())

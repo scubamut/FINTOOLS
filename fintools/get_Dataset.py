@@ -29,14 +29,15 @@ def get_Dataset(assets, start, end, debug=False):
     # 5. prices will be FORWARD-FILLED to remove missing data
 
     from pandas.tseries.offsets import BDay
-    import pandas_datareader as pdr
+    # import pandas_datareader as pdr
+    import yfinance as yf
     import xarray as xr
 
     dict = {}
     unable_to_trade = []
     for asset in assets:
         try:
-            df = pdr.DataReader(asset, 'yahoo', str((end.date() - BDay(3)).date()),
+            df = yf.download(asset, str((end.date() - BDay(3)).date()),
                                 str(end.date()))
             print(asset, 'OK\n')
         except:
@@ -44,7 +45,7 @@ def get_Dataset(assets, start, end, debug=False):
             unable_to_trade.append(asset)
             continue
 
-        df = pdr.DataReader(asset, 'yahoo', start, end)
+        df = yf.download(asset, start, end)
         dict[str(asset)] = df
 
         if debug:
@@ -75,6 +76,4 @@ if __name__ == "__main__":
 
     ds = get_Dataset(assets, start, end)
 
-    print(ds.to_dataframe().unstack('dim_1').ffill().dropna())
-
-    # pass
+    print(ds.to_dataframe())

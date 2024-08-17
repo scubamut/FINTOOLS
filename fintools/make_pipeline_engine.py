@@ -5,10 +5,7 @@ from datetime import datetime, timezone, timedelta
 import pytz
 
 from zipline.pipeline.loaders import USEquityPricingLoader
-try:
-    from zipline.utils.calendars import get_calendar
-except:
-    from zipline.utils.calendar_utils import get_calendar
+import pandas_market_calendars as mcal
 from zipline.data.bundles import register, load
 from zipline.pipeline import Pipeline
 from zipline.pipeline.data import USEquityPricing
@@ -35,7 +32,7 @@ def make_pipeline_engine(symbols=['SPY', 'TLT'], bundle='etfs_bundle', calendar=
             return pipeline_loader
         return my_dispatcher(column)
 
-    trading_calendar = get_calendar(calendar)
+    trading_calendar = mcal.get_calendar(calendar)
     engine = SimplePipelineEngine(
         get_loader=choose_loader,
         # calendar=trading_calendar.all_sessions,

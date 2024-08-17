@@ -29,14 +29,17 @@ def get_DataArray(assets, start, end, debug=False):
     # 5. prices will be FORWARD-FILLED to remove missing data
 
     from pandas.tseries.offsets import BDay
-    import pandas_datareader as pdr
+    # import pandas_datareader as pdr
+    import yfinance as yf
     import xarray as xr
 
 
     unable_to_trade = []
     for asset in assets:
         try:
-            df = pdr.DataReader(asset,'yahoo',str((end.date() - BDay(3)).date()),
+            # df = pdr.DataReader(asset,'yahoo',str((end.date() - BDay(3)).date()),
+                        #   str(end.date()))
+            df = yf.download(asset, str((end.date() - BDay(3)).date()),
                           str(end.date()))
             if debug:
                 print(asset,'OK')
@@ -50,7 +53,8 @@ def get_DataArray(assets, start, end, debug=False):
         # Remove any unusable assets
         assets = [asset for asset in assets if asset not in unable_to_trade]
 
-    df = pdr.DataReader(assets, 'yahoo', start, end)
+    # df = pdr.DataReader(assets, 'yahoo', start, end)
+    df = yf.download(assets, start, end)
     
     if debug:
         print(df[-4:])
@@ -84,7 +88,4 @@ if __name__ == "__main__":
 
     da = get_DataArray(assets,start,end)
     
-    if debug:
-        print(da.to_pandas().transpose(1,2,0))
-
-    # pass
+da
