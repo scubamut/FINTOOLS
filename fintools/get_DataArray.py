@@ -88,4 +88,4 @@ if __name__ == "__main__":
 
     da = get_DataArray(assets,start,end)
     
-da
+    print(da)
