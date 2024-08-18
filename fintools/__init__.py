@@ -1,5 +1,4 @@
 import cvxopt
-
 from fintools.backtest import backtest
 from fintools.allocation_helper_functions import *
 from fintools.cla import *
