@@ -19,4 +19,4 @@ from fintools.get_Dataset import get_Dataset
 from fintools.make_pipeline_engine import make_pipeline_engine
 from fintools.get_tiingo_prices import get_tiingo_prices
 from fintools.pipeline_engine import pipeline_engine
-from fintools.get_calendar import get_calendar
+from fintools.get_calendar import *
