@@ -48,6 +48,6 @@ if __name__ == "__main__":
     pipeline.add(AverageDollarVolume(window_length=5), "Dollar Volume")
     ##########################################################################################
 
-    pipeline_output = pipeline_engine(pipeline, start_date, end_date, 'quantopian-quandl')
+    pipeline_output = pipeline_engine(pipeline, start_date, end_date, 'US_stock_bundle')
 
     print(pipeline_output.head)

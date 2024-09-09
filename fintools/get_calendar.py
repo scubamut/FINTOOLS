@@ -1,5 +1,5 @@
 def get_calendar(calendar_name='NYSE'):
 
-    import pandas_market_calendars as mcal
+    import exchange_calendars as excal
 
-    return mcal.get_calendar(calendar_name)
+    return excal.get_calendar(calendar_name)

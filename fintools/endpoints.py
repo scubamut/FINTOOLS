@@ -1,4 +1,4 @@
-def endpoints(start=None, end=None, period='m', trading_days=None) :
+def endpoints(start=None, end=None, period='M', trading_days=None) :
 
     if trading_days is not None:
         dates = trading_days
