@@ -2,8 +2,8 @@ import cvxopt
 from fintools.backtest import backtest
 from fintools.allocation_helper_functions import *
 from fintools.cla import *
-from fintools.compute_weights_PMA import *
 from fintools.compute_weights_RS_DM import *
+from fintools.compute_weights_PMA import *
 from fintools.endpoints import *
 from fintools.finhelpers3 import *
 from fintools.get_yahoo_prices import *

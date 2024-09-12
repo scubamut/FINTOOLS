@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 import pytz
 
 from zipline.pipeline.loaders import USEquityPricingLoader
-import pandas_market_calendars as mcal
+import exchange_calendars as excal
 from zipline.data.bundles import register, load
 from zipline.pipeline import Pipeline
 from zipline.pipeline.data import USEquityPricing
@@ -32,7 +32,7 @@ def make_pipeline_engine(symbols=['SPY', 'TLT'], bundle='etfs_bundle', calendar=
             return pipeline_loader
         return my_dispatcher(column)
 
-    trading_calendar = mcal.get_calendar(calendar)
+    trading_calendar = excal.get_calendar(calendar)
     engine = SimplePipelineEngine(
         get_loader=choose_loader,
         # calendar=trading_calendar.all_sessions,
