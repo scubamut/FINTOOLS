@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a19e0290-29ee-40af-b0c7-96e5aea8d2a2" name="Default" comment="1. 'close' should have beed 'adj close'&#10;2. Bumped version">
-      <change afterPath="$PROJECT_DIR$/fintools/get_Dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,16 +34,19 @@
     <option name="ONTO" value="refs/heads/master" />
   </component>
   <component name="Git.Settings">
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="PUSH_TAGS">
       <GitPushTagMode>
         <option name="argument" value="--follow-tags" />
         <option name="title" value="Current Branch" />
       </GitPushTagMode>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="JupyterTrust" id="90cb8666-54b6-489f-afbb-ee53022183cd" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="1UWH4ViYY3HF2Nud3fJzqxLLDUM" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -69,20 +75,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
-    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/fintools" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/scubamut1/FINTOOLS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings is-module-sdk="true">
@@ -102,9 +108,10 @@
       <recent name="C:\Users\scuba\Google Drive\PycharmProjects\fintools" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.get_Dataset">
+  <component name="RunManager" selected="Python.compute_weights_PMA">
     <configuration name="compute_weights_PMA" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fintools" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -127,6 +134,7 @@
     </configuration>
     <configuration name="compute_weights_RS_DM" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fintools" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -149,6 +157,7 @@
     </configuration>
     <configuration name="get_DataArray" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fintools" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -171,6 +180,7 @@
     </configuration>
     <configuration name="get_Dataset" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fintools" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -193,6 +203,7 @@
     </configuration>
     <configuration name="get_tiingo_prices" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fintools" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -230,6 +241,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PY-242.21829.153" />
+        <option value="bundled-python-sdk-464836ebc622-b74155a9e76b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.21829.153" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
@@ -245,6 +264,8 @@
       <workItem from="1575712399313" duration="24000" />
       <workItem from="1577021320762" duration="610000" />
       <workItem from="1606395541347" duration="3346000" />
+      <workItem from="1725989808624" duration="3526000" />
+      <workItem from="1726221992309" duration="360000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1517553247658</created>
@@ -347,15 +368,6 @@
     </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -370,7 +382,27 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add conda build stuff" />
@@ -384,20 +416,6 @@
     <MESSAGE value="&#10;1. removed 'prices' from Parameters and from compute_weights&#10;2. bumped version to 0.2.2" />
     <MESSAGE value="1. changed compute_expected_returns&#10;2. Bumped version to 0.3.0&#10;3. changed x to equity" />
     <option name="LAST_COMMIT_MESSAGE" value="1. changed compute_expected_returns&#10;2. Bumped version to 0.3.0&#10;3. changed x to equity" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="3433" y="128" width="976" height="816" key="CommitChangelistDialog2" timestamp="1577022076271">
-      <screen x="2966" y="0" width="1920" height="1080" />
-    </state>
-    <state x="3433" y="128" width="976" height="816" key="CommitChangelistDialog2/1600.312.1366.768/0.154.1600.900/2966.0.1920.1080@2966.0.1920.1080" timestamp="1577022076271" />
-    <state x="3521" y="275" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1577022090096">
-      <screen x="2966" y="0" width="1920" height="1080" />
-    </state>
-    <state x="3521" y="275" width="800" height="523" key="Vcs.Push.Dialog.v2/1600.312.1366.768/0.154.1600.900/2966.0.1920.1080@2966.0.1920.1080" timestamp="1577022090096" />
-    <state x="3609" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1577023886675">
-      <screen x="2966" y="0" width="1920" height="1080" />
-    </state>
-    <state x="3609" y="366" key="com.intellij.ide.util.TipDialog/1600.312.1366.768/0.154.1600.900/2966.0.1920.1080@2966.0.1920.1080" timestamp="1577023886675" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

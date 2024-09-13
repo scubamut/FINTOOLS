@@ -13,7 +13,7 @@ def backtest(prices, weights, capital, offset=1, commission=0.):
     buy_dates = [prices.index[d + offset] for d in range(len(prices.index) - 1)
                  if prices.index[d] in rebalance_dates]
     print('FIRST BUY DATE = {}\n'.format(buy_dates[0]))
-    p_holdings = pd.DataFrame(0, index=prices.index, columns=prices.columns)
+    p_holdings = pd.DataFrame(0, index=prices.index, columns=prices.columns).astype(float)  )
     cash = 0.
     for i, date in enumerate(prices.index):
         if date in rebalance_dates:
