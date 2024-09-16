@@ -166,19 +166,18 @@ def monthly_return_table (daily_prices) :
     return table
     
 def generate_orders(transactions, prices) :
-    orders = pd.DataFrame()
+    orders = pd.DataFrame(columns = ['Year', 'Month', 'Day', 'Symbol', 'Action', 'Qty', 'Price'])
     for i in range(len(transactions)):
         for j in range(len(transactions.columns)):
             t = transactions.iloc[i]
             qty = abs(t[j])
             if qty >= 1.:
                 if transactions.iloc[i][j] < 0 :
-                    orders = orders.append([[t.name.date().year, t.name.date().month, t.name.date().day, t.index[j],\
-                                             'Sell', abs(t[j]), prices.loc[t.name][t.index[j]]]])
+                    orders.loc[len(orders)] = [t.name.date().year, t.name.date().month, t.name.date().day, t.index[j],\
+                                             'Sell', abs(t[j]), prices.loc[t.name][t.index[j]]]
                 if transactions.iloc[i][j] > 0 :
-                    orders = orders.append([[t.name.date().year, t.name.date().month, t.name.date().day, t.index[j],\
-                                             'Buy', abs(t[j]), prices.loc[t.name][t.index[j]]]])
-    orders.columns = ['Year', 'Month', 'Day', 'Symbol', 'Action', 'Qty', 'Price']
+                    orders.loc[len(orders)] = [t.name.date().year, t.name.date().month, t.name.date().day, t.index[j],\
+                                             'Buy', abs(t[j]), prices.loc[t.name][t.index[j]]]
     return orders
 
 
@@ -243,7 +242,7 @@ def backtest(prices, weights, capital, offset=1, commission=0.) :
     rebalance_dates = weights.index
     buy_dates = [prices.index[d + offset] for d in range(len(prices.index)-1) if prices.index[d] in rebalance_dates ]
     print ('FIRST BUY DATE = {}\n'.format(buy_dates[0]))
-    p_holdings = pd.DataFrame(0, index=prices.index, columns=prices.columns)
+    p_holdings = pd.DataFrame(0, index=prices.index, columns=prices.columns).astype(float)
     cash = 0.
     for i, date in enumerate(prices.index):
         if date in rebalance_dates :
