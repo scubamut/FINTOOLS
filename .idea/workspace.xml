@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a19e0290-29ee-40af-b0c7-96e5aea8d2a2" name="Default" comment="1. 'close' should have beed 'adj close'&#10;2. Bumped version">
+    <list default="true" id="a19e0290-29ee-40af-b0c7-96e5aea8d2a2" name="Default" comment="1. 'close' should have been 'Close'&#10;2. Bumped version">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>

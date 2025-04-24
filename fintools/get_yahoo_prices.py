@@ -12,6 +12,6 @@ def get_yahoo_prices(p):
     except:
         pass
 
-    close = yf.download(tickers, p.start, p.end)['Adj Close'].sort_index(ascending=True)
+    close = yf.download(tickers, p.start, p.end)['Close'].sort_index(ascending=True)
 
     return close.copy().dropna()
