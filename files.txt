@@ -7,7 +7,6 @@
 /home/scubamut/miniconda3/envs/zipline/lib/python3.5/site-packages/fintools/get_DataArray.py
 /home/scubamut/miniconda3/envs/zipline/lib/python3.5/site-packages/fintools/backtest.py
 /home/scubamut/miniconda3/envs/zipline/lib/python3.5/site-packages/fintools/show_annual_returns.py
-/home/scubamut/miniconda3/envs/zipline/lib/python3.5/site-packages/fintools/make_pipeline_engine.py
 /home/scubamut/miniconda3/envs/zipline/lib/python3.5/site-packages/fintools/new_get_yahoo_data.py
 /home/scubamut/miniconda3/envs/zipline/lib/python3.5/site-packages/fintools/Parameters.py
 /home/scubamut/miniconda3/envs/zipline/lib/python3.5/site-packages/fintools/__init__.py
@@ -28,7 +27,6 @@
 /home/scubamut/miniconda3/envs/zipline/lib/python3.5/site-packages/fintools/__pycache__/get_DataArray.cpython-35.pyc
 /home/scubamut/miniconda3/envs/zipline/lib/python3.5/site-packages/fintools/__pycache__/backtest.cpython-35.pyc
 /home/scubamut/miniconda3/envs/zipline/lib/python3.5/site-packages/fintools/__pycache__/show_annual_returns.cpython-35.pyc
-/home/scubamut/miniconda3/envs/zipline/lib/python3.5/site-packages/fintools/__pycache__/make_pipeline_engine.cpython-35.pyc
 /home/scubamut/miniconda3/envs/zipline/lib/python3.5/site-packages/fintools/__pycache__/new_get_yahoo_data.cpython-35.pyc
 /home/scubamut/miniconda3/envs/zipline/lib/python3.5/site-packages/fintools/__pycache__/Parameters.cpython-35.pyc
 /home/scubamut/miniconda3/envs/zipline/lib/python3.5/site-packages/fintools/__pycache__/__init__.cpython-35.pyc
