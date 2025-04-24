@@ -19,7 +19,7 @@ def compute_weights_PMA(name, parameters):
     except:
         pass
 
-    prices = yf.download(tickers, p.start, p.end)['Adj Close'].ffill().dropna()
+    prices = yf.download(tickers, p.start, p.end)['Close'].ffill().dropna()
 
     end_points = endpoints(period=p.frequency, trading_days=prices.index)
     prices_m = prices.loc[end_points]
