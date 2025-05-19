@@ -190,7 +190,7 @@ def save_portfolio_metrics (portfolios, portfolio_name, period_ends, prices, \
     transactions = transactions[transactions.sum(1) != 0]
     
     p_returns = p_value.pct_change(periods=1)[1:]
-    p_index = np.cumproduct(1 + p_returns)
+    p_index = np.cumprod(1 + p_returns)
     
     m_rets = (1 + p_returns).resample('M').prod() - 1
     
