@@ -2,7 +2,7 @@ import pandas as pd
 
 def monthly_return_table (daily_prices) :
     
-    monthly_returns = daily_prices.resample('M').last().pct_change()
+    monthly_returns = daily_prices.resample('ME').last().pct_change()
     df = pd.DataFrame(monthly_returns.values, columns=['Data'])
     df['Month'] = monthly_returns.index.month
     df['Year']= monthly_returns.index.year
