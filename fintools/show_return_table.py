@@ -6,5 +6,6 @@ def highlight_pos_neg (strategy_value) :
 
 def show_return_table(strategy_value):
     df = monthly_return_table (strategy_value)
-    return df.style.format('{:.2f}').applymap(lambda x: "background-color: rgb(127,255,0)" 
-                                             if x>0 else "background-color: rgb(255,99,71)")
+    # return df.style.format('{:.2f}').applymap(lambda x: "background-color: rgb(127,255,0)" 
+    #                                          if x>0 else "background-color: rgb(255,99,71)")
+    return df.style.map(lambda x: "background-color: rgb(127,255,0)" if x>0 else "background-color: rgb(255,99,71)").format('{:.2f}')
