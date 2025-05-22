@@ -8,7 +8,7 @@ def monthly_return_table (daily_prices) :
     df['Year']= monthly_returns.index.year
 
     table = df.pivot_table(index='Year', columns='Month').fillna(0).round(4) * 100
-    annual_returns = daily_prices.resample('12M').last().pct_change()[1:].values.round(4) * 100
+    annual_returns = daily_prices.resample('12ME').last().pct_change()[1:].values.round(4) * 100
     # annual_returns = daily_prices.resample('12M', how='last').pct_change()[1:].values.round(4) * 100
     if len(table) > len(annual_returns) :
         table = table[1:]
