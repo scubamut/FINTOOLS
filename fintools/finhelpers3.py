@@ -52,10 +52,10 @@ def compute_rolling_drawdown(equity) :
 
 def compute_avg_drawdown(equity) :
     drawdown = compute_drawdown(equity).shift(-1)
-    drawdown[-1]=0.
-    drawdown[0] = 0
-    dend = [drawdown.index[i] for i in range(len(drawdown)) if drawdown[i] == 0 and drawdown[i-1] != 0]
-    dstart = [drawdown.index[i] for i in range(len(drawdown)-1) if drawdown[i] == 0 and drawdown[i+1] != 0]
+    drawdown.iloc[-1]=0.
+    drawdown.iloc[0] = 0
+    dend = [drawdown.index[i] for i in range(len(drawdown)) if drawdown.iloc[i] == 0 and drawdown.iloc[i-1] != 0]
+    dstart = [drawdown.index[i] for i in range(len(drawdown)-1) if drawdown.iloc[i] == 0 and drawdown.iloc[i+1] != 0]
     f = pd.DataFrame(columns=['dstart', 'dend'])
     f.dstart = dstart
     f.dend = dend
@@ -83,10 +83,10 @@ def compute_cvar(d_returns, probs=0.05) :
 
 def compute_percent_positive_months(equity):
     p_returns = equity.pct_change(periods=1)
-    m_returns = (1 + p_returns).resample('M').prod() - 1
+    m_returns = (1 + p_returns).resample('ME').prod() - 1
     return np.sum([1 if r > 0 else 0 for r in m_returns]) / len(m_returns) * 100
     
-    m_rets = (1 + p_returns).resample('M').prod() - 1
+    m_rets = (1 + p_returns).resample('ME').prod() - 1
 
 def print_stats(equity, risk_free=0) :
     print ('**** STATISTICS ****')
