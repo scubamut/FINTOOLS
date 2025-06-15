@@ -109,6 +109,30 @@ def print_stats(equity, risk_free=0) :
     print ('CVAR 5%       : ', compute_cvar(d_returns[1:]))
     print ('% POSITIVE MONTHS       : ', compute_percent_positive_months(equity))
 
+def metrics(equity, risk_free=0) :
+    p_value = equity
+    p_index = equity.index
+    p_returns = equity.pct_change()
+    indx = ['cagr %','sharpe','period_return %','avg_monthly_return %',\
+                                'max_drawdown %','avg_drawdown %','calmar',\
+                                'R_squared','DVR','volatility','VAR','CVAR',\
+                              '%_positive_months']
+    ss = pd.Series(index=indx)
+    ss['cagr %'] = compute_cagr(p_value) * 100
+    ss['sharpe'] = compute_sharpe(p_value, risk_free=0.0)
+    ss['period_return %'] = 100 * (p_value.iloc[-1] / p_value.iloc[0] - 1)
+    ss['avg_monthly_return %'] = p_value.resample('BME').last().pct_change().mean() * 100
+    ss['max_drawdown %'] = compute_max_drawdown(p_value) * 100
+    ss['avg_drawdown %'] = compute_avg_drawdown(p_value) * 100
+    ss['calmar'] = compute_calmar(p_value)
+    ss['R_squared'] = compute_calmar(p_value)
+    ss['DVR'] = compute_DVR(p_value)
+    ss['volatility'] = compute_volatility(p_returns)
+    ss['VAR'] = compute_var(p_returns)
+    ss['CVAR'] = compute_cvar(p_returns)
+    ss['%_positive_months'] = compute_percent_positive_months(p_value)
+
+    return(ss.to_frame(""))
 
 def endpoints(start=None, end=None, period='M', trading_days=None) :
     
