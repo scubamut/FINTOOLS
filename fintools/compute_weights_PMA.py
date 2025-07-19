@@ -54,7 +54,8 @@ if __name__ == "__main__":
 #     end = datetime.today().replace(tzinfo=timezone.utc)        # to test for 'today'
     strategies = {
 
-        'PMA003': {'assets': ['VCVSX', 'FAGIX', 'VGHCX'],
+        'PMA003': {
+                'assets': ['VCVSX', 'FAGIX', 'VGHCX'],
                'start':start, 'end':end,
                'risk_lookback': 2, 'frequency': 'M', 'allocations': [1./3., 1./3., 1./3.],
               'cash_proxy': 'VUSTX'}}

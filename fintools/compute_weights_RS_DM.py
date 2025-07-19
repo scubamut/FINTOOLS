@@ -33,7 +33,7 @@ def compute_weights_RS_DM(name, parameters):
         risk_free_returns = prices_m[p.risk_free].pct_change(p.rs_lookback)[p.rs_lookback:]
         excess_returns = returns.subtract(risk_free_returns, axis=0).dropna()
 
-    absolute_momentum = prices_m[p.assets].pct_change(p.risk_lookback)[p.risk_lookback:]
+    absolute_momentum = prices_m[p.assets].pct_change(p.rs_lookback)[p.rs_lookback:]
     absolute_momentum_rule = absolute_momentum > 0
     rebalance_dates = excess_returns.index.join(absolute_momentum_rule.index, how='inner')
 
@@ -73,10 +73,11 @@ if __name__ == "__main__":
 
     strategies = {
 
-        'RS0001': {'assets': ['CWB', 'HYG', 'MBB', 'IEF', 'HYD'],
+        'RS0001': {
+                    'assets': ['XLU', 'XLRE', 'XLY', 'XLF', 'XLV', 'XLE', 'XLI', 'XLP', 'XLB', 'XLK', 'XLC'],
                    'start': start, 'end': end,
-                   'rs_lookback': 1, 'risk_lookback': 1, 'n_top': 2, 'frequency': 'M',
-                   'cash_proxy': 'CASHX', 'risk_free': 0}}
+                   'rs_lookback': 12, 'risk_lookback': 3, 'n_top': 1, 'frequency': 'M',
+                   'cash_proxy': 'SHY', 'risk_free': 'BIL'}}
 
     p_value, p_holdings, p_weights, prices = compute_weights_RS_DM('RS0001', strategies['RS0001'])
 
