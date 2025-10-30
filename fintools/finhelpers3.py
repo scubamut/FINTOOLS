@@ -194,16 +194,15 @@ def generate_orders(transactions, prices) :
     for i in range(len(transactions)):
         for j in range(len(transactions.columns)):
             t = transactions.iloc[i]
-            qty = abs(t[j])
+            qty = abs(t.iloc[j])
             if qty >= 1.:
-                if transactions.iloc[i][j] < 0 :
+                if transactions.iloc[i].iloc[j] < 0 :
                     orders.loc[len(orders)] = [t.name.date().year, t.name.date().month, t.name.date().day, t.index[j],\
-                                             'Sell', abs(t[j]), prices.loc[t.name][t.index[j]]]
-                if transactions.iloc[i][j] > 0 :
+                                              'Sell', abs(t.iloc[j]), prices.loc[t.name][t.index[j]]]
+                if transactions.iloc[i].iloc[j] > 0 :
                     orders.loc[len(orders)] = [t.name.date().year, t.name.date().month, t.name.date().day, t.index[j],\
-                                             'Buy', abs(t[j]), prices.loc[t.name][t.index[j]]]
+                                              'Buy', abs(t.iloc[j]), prices.loc[t.name][t.index[j]]]
     return orders
-
 
 def save_portfolio_metrics (portfolios, portfolio_name, period_ends, prices, \
                             p_value, p_weights, p_holdings, path=None, risk_free=0) :
